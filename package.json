@@ -1,0 +1,26 @@
+{
+  "name": "plotir",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Public-first monorepo for the PlotIR visualization compiler",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace @plotir/core && npm run build --workspace @plotir/vegalite && npm run build --workspace @plotir/tableau && npm run build --workspace @plotir/web",
+    "test": "vitest run",
+    "demo": "tsx scripts/demo.ts",
+    "dev": "npm run dev --workspace @plotir/web"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.2.0"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  }
+}

@@ -1,0 +1,33 @@
+node_modules/
+dist/
+.next/
+coverage/
+*.twb
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# Private strategy and personal working material
+competition/
+presentation/
+raw-prompts/
+personal-notes/
+private/
+scratch/
+tmp/
+TODO.private.md
+*.private.md
+*.secret.*
+
+# Editor and OS files
+.DS_Store
+.idea/
+.vscode/
