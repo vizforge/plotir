@@ -1,0 +1,55 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`toTableau > matches the example Tableau XML snapshot 1`] = `
+"<?xml version='1.0' encoding='utf-8' ?>
+<!-- PlotIR v0.1 to Tableau .twb. Confirm hard-coded attributes with Tableau Desktop; see HARDENING.md. -->
+<workbook version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <datasources>
+    <datasource caption='../examples/sales.csv' inline='true' name='federated.plotir01' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='../examples/sales.csv' name='textscan.plotir01'>
+            <connection class='textscan' filename='../examples/sales.csv' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.plotir01' name='../examples/sales.csv' table='[../examples/sales.csv]' type='table'>
+          <columns header='yes'>
+          <column datatype='string' name='Region' ordinal='0' />
+          <column datatype='real' name='Sales' ordinal='1' />
+          </columns>
+        </relation>
+      </connection>
+      <column datatype='string' name='[Region]' role='dimension' type='nominal' />
+      <column datatype='real' name='[Sales]' role='measure' type='quantitative' />
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='../examples/sales.csv' name='federated.plotir01' />
+          </datasources>
+          <datasource-dependencies datasource='federated.plotir01'>
+          <column datatype='string' name='[Region]' role='dimension' type='nominal' />
+          <column datatype='real' name='[Sales]' role='measure' type='quantitative' />
+          <column-instance column='[Region]' derivation='None' name='[none:Region:nk]' pivot='key' type='nominal' />
+          <column-instance column='[Sales]' derivation='Sum' name='[sum:Sales:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+        </view>
+        <panes>
+          <pane>
+            <view><breakdown value='auto' /></view>
+            <mark class='Bar' />
+          </pane>
+        </panes>
+        <rows>[federated.plotir01].[sum:Sales:qk]</rows>
+        <cols>[federated.plotir01].[none:Region:nk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows>
+    <window class='worksheet' name='Sheet 1' />
+  </windows>
+</workbook>"
+`;
