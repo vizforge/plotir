@@ -1,0 +1,36 @@
+{
+  "data": {
+    "source": "../examples/sales.csv",
+    "fields": [
+      {
+        "id": "region",
+        "name": "Region",
+        "dataType": "string",
+        "role": "dimension"
+      },
+      {
+        "id": "sales",
+        "name": "Sales",
+        "dataType": "number",
+        "role": "measure",
+        "defaultAggregate": "sum"
+      }
+    ]
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "region"
+    },
+    "y": {
+      "field": "sales"
+    }
+  },
+  "transforms": [
+    {
+      "kind": "sort",
+      "field": "sales",
+      "order": "desc"
+    }
+  ]
+}
