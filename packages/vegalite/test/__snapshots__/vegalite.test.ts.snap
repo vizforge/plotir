@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`toVegaLite > compiles the example into a Vega-Lite v5 specification 1`] = `
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "../examples/sales.csv",
+  },
+  "encoding": {
+    "x": {
+      "field": "Region",
+      "sort": "-y",
+      "type": "nominal",
+    },
+    "y": {
+      "aggregate": "sum",
+      "field": "Sales",
+      "type": "quantitative",
+    },
+  },
+  "mark": "bar",
+}
+`;
